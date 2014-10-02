@@ -13,10 +13,16 @@ It works like this:
 
 ```bash
 # splitting files larger than 50MB before commiting
+# let git know about the big files
+git add .
+# split the big files
 ./git_splitbig.sh 50
+# get the big files out of the repo - or add them to .gitignore
 mv big_foo.tif large_bar.xls /tmp
+# let git know about the split files
 git add .
 git commit
+# push your split files!
 git push
 ```
 
