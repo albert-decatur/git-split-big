@@ -25,6 +25,7 @@ for bigfile in "$tosplit"
 do 
 	rm -r ${bigfile}_zips/ 2>/dev/null
 	tmpdir=$(mktemp -d)
+	md5sum ${bigfile} > gitsplitbig_${bigfile}.md5
 	split -a 10 -b ${size}MB $bigfile $tmpdir
 	mv $tmpdir* $tmpdir 2>/dev/null
 	for splitfile in $( find $tmpdir -type f )
