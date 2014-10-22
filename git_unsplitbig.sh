@@ -10,7 +10,7 @@ cd $split_parent_dir
 for bigfile in $bigfiles
 do 
 	# go to the dir made by git_splitbig.sh for the given file
-	cd ${bigfiles}_zips/
+	cd ${bigfile}_zips/
 	# unzip each zip and remove afterwards
 	for zip in *.zip
 	do 
@@ -19,8 +19,6 @@ do
 	done
 	# cat together the split files in order to remake the old file
 	cat $( find . -type f ! -iregex ".*${bigfile}" | sort ) > ../$bigfile
-	# remove the tmp files made by split
-	find . -type f ! -iregex ".*${bigfile}" | xargs rm
 	# move up to parent dir to remove current dir
 	cd ..
 	# remove split dirs
