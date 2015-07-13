@@ -29,5 +29,5 @@ git push
 Now if you clone the repo elsewhere and want to recreate the original files just:
 
 ```bash
-./git_unsplitbig.sh "big_foo.tif large_bar.xls"
+./git_unsplitbig.sh path/to/split_dir/ "big_foo.tif large_bar.xls"
 ```
